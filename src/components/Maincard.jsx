@@ -2,23 +2,50 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Modalr from './Modalr';
+import { useState } from 'react';
 const Maincard = ()=>{
-
+  const [isVisble, setVisible] = useState(false)
     return (
+        
         <>
-        <Container fluid>
-            <Card className="text-center">
-                <Card.Header>Featured</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                            <Card.Text>
-                                With supporting text below as a natural lead-in to additional content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
-            </Card>
-        </Container>
+        <div >
+            <Container fluid className="d-flex align-items-center justify-content-center min-vh-100">
+                <Row>
+                    <Col >
+                    <Card className="text-center " >
+                        <Card.Header> 🤷‍♀️Today's Question 🤔</Card.Header>
+                            <Card.Body>
+                                <Card.Title>Select your answer 🤗 </Card.Title>
+                                    <Card.Text>
+                                        First Valentine. Many more, hopefully—with you.
+                                            Will you be my Valentine? ♥️
+                                    </Card.Text>
+                                    <Row className="g-2"> 
+                                        <Col xs={12} sm={6}> 
+                                            <Button variant="primary">Yes Sure 🥰</Button>
+                                        </Col>
+                                        <Col xs={12} sm={6}>
+                                            <Button variant="danger" onClick={()=>setVisible(true)}>Get Lost 💩</Button>
+                                            <Modalr show ={isVisble} onHide={()=>setVisible(false)} />
+                                        </Col>
+                                    </Row>
+                                    
+                                    
+                                    
+                                </Card.Body>
+                        {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
+                    </Card>
+                    </Col>
+                </Row>
+             
+            </Container>
+        </div>
+
+        
+        
         
         </>
     )
